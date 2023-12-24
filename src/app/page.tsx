@@ -1,4 +1,8 @@
+"use client";
+
+
 import View from "@/components/view"
+import { useState, useEffect } from "react";
 
 
 import { Poppins } from "next/font/google";
@@ -12,6 +16,15 @@ const poppins = Poppins({
 
 
 export default function Home() {
+	const [views, setViews] = useState([]);
+
+
+	useEffect(() => {
+		let objs = JSON.parse(localStorage.getItem('view'))
+		setViews(objs);
+	})
+
+
 	return (
 		<main className = "flex flex-col">
 			<div className = "mt-32 text-5xl self-center">
@@ -19,20 +32,13 @@ export default function Home() {
 			</div>
 
 			<div className = "w-3/4 my-14 py-10 self-center flex justify-evenly flex-wrap">
-				<div className = "w-1/3 my-10 mx-10">
-					<View 
-						title = 'Friends'
-						url = '#'
-						img = 'images/friends.jpg'
-					/>
-				</div>
-				<div className = "w-1/3 my-10 mx-10">
-					<View 
-						title = 'How I Met Your Mother?'
-						url = '#'
-						img = 'images/himym.jpg'
-					/>
-				</div>
+				{
+					views.map((view) => <View 
+						title = {view.title}
+						url = {view.url}
+						img = {view.img}	
+					/>)
+				}
 			</div>
 		</main>
 	)

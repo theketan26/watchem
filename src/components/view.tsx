@@ -18,7 +18,7 @@ const poppins_6 = Poppins({
 
 export default function View(props) {
     return (
-        <div className = 'h-44 border-4 rounded-xl border-stone-500 overflow-hidden flex'>
+        <div className = 'mt-5 h-44 border-4 rounded-xl border-stone-500 overflow-hidden flex'>
             <div>
                 <img
                     className = "h-44 translate-x-[-5px]"
