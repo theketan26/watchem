@@ -20,16 +20,18 @@ export default function Home() {
 
 			<div className = "w-3/4 my-14 py-10 self-center flex justify-evenly flex-wrap">
 				<div className = "w-1/3 my-10 mx-10">
-					<View />
+					<View 
+						title = 'Friends'
+						url = '#'
+						img = 'images/friends.jpg'
+					/>
 				</div>
 				<div className = "w-1/3 my-10 mx-10">
-					<View />
-				</div>
-				<div className = "w-1/3 my-10 mx-10">
-					<View />
-				</div>
-				<div className = "w-1/3 my-10 mx-10">
-					<View />
+					<View 
+						title = 'How I Met Your Mother?'
+						url = '#'
+						img = 'images/himym.jpg'
+					/>
 				</div>
 			</div>
 		</main>
