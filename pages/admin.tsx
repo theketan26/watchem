@@ -19,8 +19,7 @@ export default function AddRemove() {
 	const [title_r, setTitle_r] = useState('');
 
 
-	const handleAdd = (e: React.ChangeEvent<HTMLInputElement>) => {
-		e.preventDefault();
+	const handleAdd = () => {
 		console.log('Adding');
 
 		let items: string | null = localStorage.getItem('view');
@@ -43,8 +42,7 @@ export default function AddRemove() {
 	}
 
 
-	const handleRemove = (e: React.ChangeEvent<HTMLInputElement>) => {
-		e.preventDefault();
+	const handleRemove = () => {
 		console.log('Removing');
 
 		let items: string | null = localStorage.getItem('view');
@@ -66,8 +64,7 @@ export default function AddRemove() {
 	}
 
 
-	const handleGet = (e: React.ChangeEvent<HTMLInputElement>) => {
-		e.preventDefault();
+	const handleGet = () => {
 		console.log('Getting');
 
 		let items: string | null = localStorage.getItem('view');
