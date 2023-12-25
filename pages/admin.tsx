@@ -31,7 +31,7 @@ export default function AddRemove() {
 		if (typeof e === null) {
 			return;
 		}
-		setImg(e.target.value);
+		setUrl(e.target.value);
 	}
 
 
@@ -39,7 +39,7 @@ export default function AddRemove() {
 		if (typeof e === null) {
 			return;
 		}
-		setUrl(e.target.value);
+		setImg(e.target.value);
 	}
 
 

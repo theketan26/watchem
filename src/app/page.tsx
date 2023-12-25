@@ -24,6 +24,7 @@ interface View {
 
 export default function Home() {
 	const [views, setViews] = useState([]);
+	const [isEmpty, setIsEmpty] = useState(true);
 
 
 	useEffect(() => {
@@ -34,6 +35,7 @@ export default function Home() {
 			item = '[]';
 		} else {
 			item = String(items);
+			setIsEmpty(false);
 		}
 
 		let objs = JSON.parse(item);
@@ -51,6 +53,10 @@ export default function Home() {
 
 			<div className = "w-3/4 my-14 py-10 self-center flex justify-evenly flex-wrap">
 				{
+					isEmpty && <span>No Data!</span>
+				}
+				{
+					!isEmpty &&
 					views.map((view: View) => <View 
 						key = { 1 }
 						title = { view.title }
