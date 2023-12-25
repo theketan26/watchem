@@ -1,7 +1,17 @@
-import { useState } from "react"
+"use client";
 
 
-export default function add_remove() {
+import { useState } from "react"; 
+
+
+interface View {
+	title: string;
+	url: string;
+	img: string;
+}
+
+
+export default function AddRemove() {
 	const [views, setViews] = useState([]);
 	const [title, setTitle] = useState('');
 	const [img, setImg] = useState('');
@@ -9,53 +19,87 @@ export default function add_remove() {
 	const [title_r, setTitle_r] = useState('');
 
 
-	const handleAdd = (e) => {
+	const handleAdd = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
 		console.log('Adding');
-		let obj = JSON.parse(localStorage.getItem('view'));
+
+		let items: string | null = localStorage.getItem('view');
+		if (typeof items === null) {
+			return;
+		} else {
+			items = '[]';
+		}
+
+		let obj: Array<View> = JSON.parse(items);
 		obj.push({
 			'title': title,
 			'url': url,
 			'img': img
 		})
+
 		localStorage.setItem('view', JSON.stringify(obj));
 	}
 
 
-	const handleRemove = (e) => {
+	const handleRemove = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
 		console.log('Removing');
-		let objs = JSON.parse(localStorage.getItem('view'));
+
+		let items: string | null = localStorage.getItem('view');
+		if (typeof items === null) {
+			return;
+		} else {
+			items = '[]';
+		}
+
+		let objs: Array<View>  = JSON.parse(items);
 		objs = objs.filter((obj) => {
 			return obj['title'] != title_r
 		})
+
 		localStorage.setItem('view', JSON.stringify(objs));
+	}
+
+
+	const handleGet = (e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault();
+		console.log('Getting');
+
+		let items: string | null = localStorage.getItem('view');
+		if (typeof items === null) {
+			return;
+		} else {
+			items = '[]';
+		}
+
+		let objs: Array<View>  = JSON.parse(items);
+		console.log(objs);
 	}
 
 
 	return (
 		<main className = "flex flex-col">
-			<button onClick = { () => console.log(JSON.parse(localStorage.getItem('view'))) }>Get All</button>
+			<button onClick = { () => handleGet }>Get All</button>
 
 			<section> 
 				<span>Add link</span>
 				<form>
-					<label name = 'title'>Title: </label>
+					<label>Title: </label>
 					<input name = 'title' value = {title} onChange = { (e) => { setTitle(e.target.value) } } />
-					<label name = 'url'>URL: </label>
+					<label>URL: </label>
 					<input name = 'url' value = {url} onChange = { (e) => { setUrl(e.target.value) } } />
-					<label name = 'img'>Image URL: </label>
+					<label>Image URL: </label>
 					<input name = 'img' value = {img} onChange = { (e) => { setImg(e.target.value) } } />
-					<button onClick = { handleAdd }>Add</button>
+					<button onClick = { () => handleAdd }>Add</button>
 				</form>
 			</section>
 
 			<section> 
 				<span>Remove link</span>
 				<form>
-					<label name = 'title_r'>Title: </label>
+					<label>Title: </label>
 					<input name = 'title_r' value = {title_r} onChange = { (e) => { setTitle_r(e.target.value) } } />
-					<button onClick = { handleRemove }>Remove</button>
+					<button onClick = { () => handleRemove }>Remove</button>
 				</form>
 			</section>
 			{ views }

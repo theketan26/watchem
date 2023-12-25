@@ -4,11 +4,6 @@
 import { Poppins } from 'next/font/google';
 
 
-const poppins_4 = Poppins({
-	subsets: ['latin'],
-	variable: '--font-inter',
-	weight: '400'
-})
 const poppins_6 = Poppins({
 	subsets: ['latin'],
 	variable: '--font-inter',
@@ -16,7 +11,14 @@ const poppins_6 = Poppins({
 })
 
 
-export default function View(props) {
+interface View {
+	title: string;
+	url: string;
+	img: string;
+}
+
+
+export default function View(props: View) {
     return (
         <div className = 'mt-5 h-44 border-4 rounded-xl border-stone-500 overflow-hidden flex'>
             <div>
@@ -30,7 +32,7 @@ export default function View(props) {
                 ><span className = { poppins_6.className }>{ props.title }</span></span>
                 <a className = "mt-2 mx-10 bg-stone-600 p-2 text-center rounded-full"
                     href = { props.url }>
-                    Watch
+                    <span className = { poppins_6.className }>Watch</span>
                 </a>
             </div>
         </div>

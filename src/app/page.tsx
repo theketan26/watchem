@@ -15,12 +15,26 @@ const poppins = Poppins({
 })
 
 
+interface View {
+	title: string;
+	url: string;
+	img: string;
+}
+
+
 export default function Home() {
 	const [views, setViews] = useState([]);
 
 
 	useEffect(() => {
-		let objs = JSON.parse(localStorage.getItem('view'))
+		let items: string | null = localStorage.getItem('view');
+		if (typeof items === null) {
+			return
+		} else {
+			items = '[]';
+		}
+
+		let objs = JSON.parse(items);
 		setViews(objs);
 	})
 
@@ -33,10 +47,11 @@ export default function Home() {
 
 			<div className = "w-3/4 my-14 py-10 self-center flex justify-evenly flex-wrap">
 				{
-					views.map((view) => <View 
-						title = {view.title}
-						url = {view.url}
-						img = {view.img}	
+					views.map((view: View) => <View 
+						key = { 1 }
+						title = { view.title }
+						url = { view.url }
+						img = { view.img }	
 					/>)
 				}
 			</div>
