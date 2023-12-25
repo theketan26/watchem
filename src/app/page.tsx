@@ -10,7 +10,7 @@ import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
 	subsets: ['latin'],
-	variable: '--font-inter',
+	// variable: '--font-inter',
 	weight: '600'
 })
 
@@ -31,7 +31,7 @@ export default function Home() {
 		let items: string | null = localStorage.getItem('view');
 		let item: string;
 		console.log(typeof items);
-		if (typeof items === null) {
+		if (items === null) {
 			item = '[]';
 		} else {
 			item = String(items);
