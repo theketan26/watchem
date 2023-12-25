@@ -1,7 +1,7 @@
 "use client";
 
 
-import { useState } from "react"; 
+import React, { ChangeEventHandler, useState } from "react"; 
 
 
 interface View {
@@ -17,6 +17,26 @@ export default function AddRemove() {
 	const [img, setImg] = useState('');
 	const [url, setUrl] = useState('');
 	const [title_r, setTitle_r] = useState('');
+
+
+	const handleSetTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setTitle(e.target.value);
+	}
+
+
+	const handleSetURL = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setImg(e.target.value);
+	}
+
+
+	const handleSetImg = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setUrl(e.target.value);
+	}
+
+
+	const handleSetTitle_r = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setTitle_r(e.target.value);
+	}
 
 
 	const handleAdd = () => {
@@ -89,11 +109,11 @@ export default function AddRemove() {
 				<span>Add link</span>
 				<form>
 					<label>Title: </label>
-					<input name = 'title' value = {title} onChange = { (e) => { setTitle(e.target.value) } } />
+					<input name = 'title' value = {title} onChange = { (e) => handleSetTitle(e) } />
 					<label>URL: </label>
-					<input name = 'url' value = {url} onChange = { (e) => { setUrl(e.target.value) } } />
+					<input name = 'url' value = {url} onChange = { (e) => { handleSetURL(e) } } />
 					<label>Image URL: </label>
-					<input name = 'img' value = {img} onChange = { (e) => { setImg(e.target.value) } } />
+					<input name = 'img' value = {img} onChange = { (e) => { handleSetImg(e) } } />
 					<button onClick = { () => handleAdd }>Add</button>
 				</form>
 			</section>
@@ -102,7 +122,7 @@ export default function AddRemove() {
 				<span>Remove link</span>
 				<form>
 					<label>Title: </label>
-					<input name = 'title_r' value = {title_r} onChange = { (e) => { setTitle_r(e.target.value) } } />
+					<input name = 'title_r' value = {title_r} onChange = { (e) => { handleSetTitle_r(e) } } />
 					<button onClick = { () => handleRemove }>Remove</button>
 				</form>
 			</section>
