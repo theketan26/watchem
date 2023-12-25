@@ -19,7 +19,7 @@ export default function AddRemove() {
 	const [title_r, setTitle_r] = useState('');
 
 
-	const handleSetTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleSetTitle = (e: React.ChangeEvent<HTMLInputElement | null>) => {
 		if (typeof e === null) {
 			return;
 		}
