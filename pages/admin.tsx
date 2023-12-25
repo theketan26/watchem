@@ -20,21 +20,33 @@ export default function AddRemove() {
 
 
 	const handleSetTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (typeof e === null) {
+			return;
+		}
 		setTitle(e.target.value);
 	}
 
 
 	const handleSetURL = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (typeof e === null) {
+			return;
+		}
 		setImg(e.target.value);
 	}
 
 
 	const handleSetImg = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (typeof e === null) {
+			return;
+		}
 		setUrl(e.target.value);
 	}
 
 
 	const handleSetTitle_r = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (typeof e === null) {
+			return;
+		}
 		setTitle_r(e.target.value);
 	}
 
