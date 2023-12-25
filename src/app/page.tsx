@@ -28,15 +28,19 @@ export default function Home() {
 
 	useEffect(() => {
 		let items: string | null = localStorage.getItem('view');
+		let item: string;
+		console.log(typeof items);
 		if (typeof items === null) {
-			return
+			item = '[]';
 		} else {
-			items = '[]';
+			item = String(items);
 		}
 
-		let objs = JSON.parse(items);
+		let objs = JSON.parse(item);
 		setViews(objs);
-	})
+
+		console.log(objs);
+	}, [])
 
 
 	return (

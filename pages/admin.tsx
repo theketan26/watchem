@@ -24,20 +24,22 @@ export default function AddRemove() {
 		console.log('Adding');
 
 		let items: string | null = localStorage.getItem('view');
+		let item: string;
+		console.log(typeof items);
 		if (typeof items === null) {
-			return;
+			item = '[]';
 		} else {
-			items = '[]';
+			item = String(items);
 		}
 
-		let obj: Array<View> = JSON.parse(items);
-		obj.push({
+		let objs = JSON.parse(item);
+		objs.push({
 			'title': title,
 			'url': url,
 			'img': img
 		})
 
-		localStorage.setItem('view', JSON.stringify(obj));
+		localStorage.setItem('view', JSON.stringify(objs));
 	}
 
 
@@ -46,14 +48,17 @@ export default function AddRemove() {
 		console.log('Removing');
 
 		let items: string | null = localStorage.getItem('view');
+		let item: string;
+		console.log(typeof items);
 		if (typeof items === null) {
-			return;
+			item = '[]';
 		} else {
-			items = '[]';
+			item = String(items);
 		}
 
-		let objs: Array<View>  = JSON.parse(items);
-		objs = objs.filter((obj) => {
+		let objs = JSON.parse(item);
+
+		objs = objs.filter((obj: View) => {
 			return obj['title'] != title_r
 		})
 
@@ -66,13 +71,15 @@ export default function AddRemove() {
 		console.log('Getting');
 
 		let items: string | null = localStorage.getItem('view');
+		let item: string;
+		console.log(typeof items);
 		if (typeof items === null) {
-			return;
+			item = '[]';
 		} else {
-			items = '[]';
+			item = String(items);
 		}
 
-		let objs: Array<View>  = JSON.parse(items);
+		let objs = JSON.parse(item);
 		console.log(objs);
 	}
 
