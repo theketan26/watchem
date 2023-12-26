@@ -1,7 +1,7 @@
 "use client";
 
 
-import View from "@/components/view"
+import View from "@/components/view";
 import { useState, useEffect } from "react";
 import path from "path";
 // import fs from "fs";

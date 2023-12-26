@@ -10,7 +10,7 @@
         "img": "images/bb.jpg"
     },
     {
-        "title": "How i met your mother?",
+        "title": "How I Met Your Mother?",
         "url": "https://watchhowimetyourmother.co/episodes/how-i-met-your-mother-4x12/?redirect_to=random&post_type=episodes",
         "img": "images/himym.jpg"
     },
@@ -18,5 +18,15 @@
         "title": "Family Guy",
         "url": "https://watchfamilyguy.co/",
         "img": "images/fg.avif"
+    },
+    {
+        "title": "4Anime",
+        "url": "https://4anime.gg/",
+        "img": "images/4anime.png"
+    },
+    {
+        "title": "VegaMovies",
+        "url": "https://vegamovies.dad/",
+        "img": "images/vegamovies.jpg"
     }
 ]
