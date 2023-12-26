@@ -20,10 +20,10 @@ interface View {
 
 export default function View(props: View) {
     return (
-        <div className = 'mt-5 h-44 border-4 rounded-xl border-stone-500 overflow-hidden flex'>
+        <div className = 'w-96 mt-5 mx-5 h-44 border-4 rounded-xl border-stone-500 overflow-hidden flex'>
             <div>
                 <img
-                    className = "h-44 translate-x-[-5px]"
+                    className = "h-44 translate-x-[-5px] min-w-44"
                     src = { props.img }
                 /> 
             </div>
